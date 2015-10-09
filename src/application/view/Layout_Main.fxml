@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_Main">
+   <children>
+      <SplitPane dividerPositions="0.3" VBox.vgrow="ALWAYS">
+        <items>
+            <VBox id="accordion_pane">
+               <children>
+                  <Accordion id="my_accordion" fx:id="accordion" VBox.vgrow="ALWAYS">
+                    <panes>
+                      <TitledPane fx:id="browserPane" text="File system browser">
+                           <content>
+                              <TreeView fx:id="browserTree">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TreeView>
+                           </content>
+                      </TitledPane>
+                      <TitledPane fx:id="sourcesPane" text="Sources list">
+                           <content>
+                              <TableView fx:id="sourcesTable">
+                                <columns>
+                                  <TableColumn fx:id="srcPathColumn" prefWidth="75.0" text="Relative path" />
+                                  <TableColumn fx:id="srcNameColumn" prefWidth="20.0" text="File name" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </content>
+                      </TitledPane>
+                        <TitledPane fx:id="variablesPane" contentDisplay="RIGHT" text="Variables">
+                           <content>
+                              <TableView fx:id="variableTable" editable="true">
+                                 <columns>
+                                    <TableColumn fx:id="nameColumn" prefWidth="242.0" text="Variable name" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </content>
+                           <graphic>
+                              <HBox>
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#OnButton_NewVariable" text="New">
+                                       <HBox.margin>
+                                          <Insets bottom="-5.0" left="5.0" right="5.0" top="-5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </TitledPane>
+                        <TitledPane fx:id="rulesPane" contentDisplay="RIGHT" text="Rules" textAlignment="RIGHT">
+                           <content>
+                              <TreeView fx:id="rulesTree" showRoot="false" />
+                           </content>
+                           <graphic>
+                              <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#OnButton_NewRule" text="New">
+                                       <HBox.margin>
+                                          <Insets bottom="-5.0" left="5.0" right="5.0" top="-5.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </TitledPane>
+                        <TitledPane fx:id="previewPane" text="Preview">
+                           <content>
+                              <TableView fx:id="sourcesPreviewTable" VBox.vgrow="ALWAYS">
+                                 <columns>
+                                    <TableColumn fx:id="srcPreviewPathColumn" prefWidth="60.0" text="Relative path" />
+                                    <TableColumn fx:id="srcPreviewNameColumn" prefWidth="30.0" text="File name" />
+                                    <TableColumn fx:id="srcPreviewCharsetColumn" prefWidth="15.0" text="Charset" />
+                                    <TableColumn fx:id="srcPreviewStatusColumn" prefWidth="15.0" text="Status" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </content>
+                        </TitledPane>
+                    </panes>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="-2.0" />
+                     </padding>
+                  </Accordion>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <AnchorPane fx:id="selectedLayout" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+      <TitledPane id="log_pane" fx:id="consolePane" alignment="CENTER" animated="false" maxHeight="150.0" text="- Console -">
+         <content>
+            <ScrollPane>
+               <content>
+                  <TextFlow id="console" fx:id="consoleFlow">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </TextFlow>
+               </content>
+            </ScrollPane>
+         </content>
+      </TitledPane>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onButton_ChooseBaseFolder" text="Choose Base Folder">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="BaseFolderLabel" alignment="CENTER_RIGHT" text="No base folder selected." wrapText="true">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets left="11.0" right="11.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="12.0" top="12.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

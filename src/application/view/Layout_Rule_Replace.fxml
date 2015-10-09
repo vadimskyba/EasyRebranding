@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox prefHeight="600.0" prefWidth="400.0" spacing="5.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_Rule_Replace">
+   <children>
+      <CheckBox fx:id="enabledCheckBox" mnemonicParsing="false" text="Enabled" />
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Separator>
+      <Label alignment="TOP_LEFT" text="Rule name:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="nameField" text="Version X.X.X Updater">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextField>
+      <Label text="Description:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextArea fx:id="descriptionArea" minHeight="25.0" prefHeight="60.0" wrapText="true">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextArea>
+      <Label text="Search mode:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <ChoiceBox fx:id="searchModeCBox" prefWidth="150.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ChoiceBox>
+      <Label text="Find what:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="findWhatField">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextField>
+      <Label text="Replace with:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="replaceWithField">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextField>
+      <Label text="Sources using this rule:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TableView fx:id="sourcesTable" minHeight="50.0" prefHeight="200.0" VBox.vgrow="SOMETIMES">
+        <columns>
+          <TableColumn fx:id="selectedColumn" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" sortable="false" />
+          <TableColumn fx:id="nameColumn" editable="false" prefWidth="75.0" text="File name" />
+          <TableColumn fx:id="pathColumn" editable="false" prefWidth="75.0" text="Relative path" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TableView>
+      <HBox>
+         <children>
+            <Button mnemonicParsing="false" onAction="#OnButton_RuleRemove" text="Remove Rule" />
+            <Button mnemonicParsing="false" onAction="#OnButton_RuleDuplicate" text="Duplicate">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

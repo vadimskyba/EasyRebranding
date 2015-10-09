@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?scenebuilder-classpath-element "../../../../../EasyRebranding/bin/application/view/controls/TableViewEx.class"?>
+
+<?import application.view.controls.TableViewEx?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_Preview">
+   <children>
+      <SplitPane dividerPositions="0.4824120603015075" orientation="VERTICAL" VBox.vgrow="ALWAYS">
+         <items>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox id="header" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308">
+                     <children>
+                        <Label fx:id="selectedFileLabel" minHeight="-Infinity" text="Selected file: file not selected" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <WebView fx:id="webView" minHeight="-1.0" minWidth="-1.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </WebView>
+               </children>
+            </VBox>
+            <TableViewEx fx:id="matchesTable">
+               <columns>
+                  <TableColumn fx:id="ruleNameColumn" prefWidth="100.0" text="Rule name" />
+                  <TableColumn fx:id="foundStrColumn" prefWidth="75.0" text="Matched text" />
+                  <TableColumn fx:id="replacementStrColumn" prefWidth="75.0" text="Replacement" />
+               </columns>
+               <columnResizePolicy>
+                  <TableViewEx fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableViewEx>
+         </items>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </SplitPane>
+   </children>
+   <padding>
+      <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+<script type='text/JavaScript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>
+-->
+<style media="screen" type="text/css">
+
+	@font-face {
+		font-family: 'DroidSansMono';
+		src: url("../resources/DroidSansMono.ttf") format("truetype");
+	}
+
+	body, pre, code {
+		font-family: 'DroidSansMono', monospace; /*'Consolas', 'DroidSansMono', monospace;*/
+		font-size: 9pt;
+		line-height: 1.5;
+		color:#333;
+		tab-size: 3;
+	}
+
+	.TextBlock_Replace {
+		color: #ffffff;
+		background-color: #448855;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	
+	.TextBlock_Replace:hover {
+		background-color: #44cc55;
+	}
+	
+	.replace_selected {
+		background-color: #44cc55;
+	}
+	
+</style>
+<script type='text/javascript'>
+
+	var selectedId = 0;
+
+	function StartModify () {
+		document.getElementById("content").innerHTML = "";
+	}
+	
+	function FinishModify () {
+		SetAllReplacesOnClick();
+	}
+	
+	function AddHTMLBlock (contentStr) {
+		document.getElementById("content").innerHTML += contentStr;
+	}
+	
+	function SetTextContent (id, contentStr) {
+		/*	tag with specified id shouln't be empty. At least space should be present!
+			Example: <span> </span>
+		*/		
+		document.getElementById(id).firstChild.nodeValue = contentStr;
+	}
+
+	function OnClick_TextBlock_Replace (id) {
+		Select(id);
+		java.OnSelect_TextBlock_Replace(id);
+	}
+
+	function Select (id) {
+		if(selectedId != 0) {
+			//document.getElementById(id).style.background-color
+			document.getElementById(selectedId).className = 'TextBlock_Replace';
+			selectedId = 0;
+		}
+		
+		if(id != 0) {
+			var element = document.getElementById(id);
+			
+			if(element != null) { 
+				element.className += ' replace_selected';
+				selectedId = id;
+				
+				if(!inViewport(element))
+					element.scrollIntoView();
+			}
+		}
+	}
+	
+	function SetAllReplacesOnClick () {
+		var elements = document.body.getElementsByTagName('span');
+		for (var i = 0; i < elements.length; i++) {
+			if(elements[i].className == 'TextBlock_Replace') {
+				
+			    // specify onclick functions for each replace block
+				elements[i].onclick = function() { OnClick_TextBlock_Replace(this.id); };
+			}
+		}
+	}
+	
+	function inViewport (el) {
+	    var r, html;
+	    if ( !el || 1 !== el.nodeType ) { return false; }
+	    html = document.documentElement;
+	    r = el.getBoundingClientRect();
+
+	    return ( !!r 
+	      && r.bottom >= 0 
+	      && r.right >= 0 
+	      && r.top <= html.clientHeight 
+	      && r.left <= html.clientWidth 
+	    );
+	}
+</script>
+</head>
+
+<body>
+	<pre id="content"></pre>
+</body>
+</html>
+

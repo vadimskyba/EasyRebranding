@@ -1,0 +1,140 @@
+/*.scroll-pane,
+.list-view,
+.tree-view,
+.table-view, 
+.tree-table-view,
+.html-editor, */
+
+/*
+.split-pane {
+    -fx-background-insets: 0;
+}
+
+.split-pane:vertical > .split-pane-divider {
+	-fx-padding: 0 10 0 10;
+	-fx-background-color: transparent;
+}
+
+.split-pane:horizontal  > .split-pane-divider {
+	-fx-padding: 0 10 0 10;
+	-fx-background-color: transparent;
+}
+*/
+/*
+.accordion > .titled-pane {
+	
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+	-fx-border-width: 0;
+	-fx-padding: 0;
+}
+*/
+
+@font-face {
+    font-family: DroidSansMono;
+    src: url('../resources/DroidSansMono.ttf');
+}
+
+.root {
+	-fx-font-size: 11px;
+    -fx-font-family: DroidSansMono;
+}
+
+#header {
+	
+	/*-fx-background-color: linear-gradient(to bottom, derive(-fx-color,20%) ,derive(-fx-color,-10%));*/
+	/*
+	-fx-background-color: linear-gradient(	derive(-fx-color,-15%),
+											derive(-fx-color,0%),
+											derive(-fx-color,40%),
+											derive(-fx-color,0%),
+											derive(-fx-color,-15%)
+	);
+	*/
+
+	/*-fx-padding: 6 0 6 0;*/
+	-fx-padding: 14 0 12 0;
+	-fx-background-color: linear-gradient(from 41px 34px to 50px 50px, reflect,  derive(-fx-color,-10%) 30%, derive(-fx-color,-5%)  47%);
+	-fx-border-width: 0 0 1 0;
+	-fx-border-color: derive(-fx-text-box-border,-15%);
+	-fx-effect: innershadow( three-pass-box , rgba(255,255,255,0.7) , 5, 0.0 , 0 , 4 );
+}
+
+#accordion_pane {
+	-fx-background-color: derive(-fx-color,-20%);
+}
+
+.accordion {
+	-fx-padding: -1 0 -1 0;
+}
+
+.accordion > .titled-pane > .title {
+	-fx-padding: 7 10 7 10;
+    /*-fx-background-color: linear-gradient(aliceblue, lightslategray);*/
+    /*-fx-background-color: linear-gradient(to bottom, derive(-fx-color,10%) ,derive(-fx-color,-10%));*/
+}
+
+.accordion > .titled-pane > *.content {
+	/*-fx-padding: 0 0 0 0;*/
+	-fx-border-width: 0 0 1 0;
+}
+
+.column-header {
+	-fx-box-border: #bfbfbf;
+}
+
+#log_pane > .title {
+	-fx-padding: 1 10 1 10;
+	-fx-background-color: -fx-background;
+	-fx-border-color: 
+        transparent
+        transparent
+        -fx-text-box-border
+        transparent;
+}
+
+#log_pane > .title > .arrow-button .arrow{
+    -fx-shape: " ";
+}
+
+#log_pane > .title:hover {
+	-fx-background-color: linear-gradient(to bottom, derive(-fx-color,10%) ,derive(-fx-color,-10%));
+}
+
+
+#assigned_source {
+    /* visibility: -fx-background-color: #9faf9f; */
+    -fx-font-weight: bold;
+    /*-fx-text-fill: #448855;*/
+    -fx-text-fill: #333;
+}
+
+#console {
+	-fx-font-family: DroidSansMono;
+}
+
+#console_text {
+	-fx-font-size: 11px;
+	-fx-fill: #333333;
+}
+
+#console_text_warning {
+	-fx-font-size: 11px;
+	-fx-fill: #ff0000;
+}
+
+#console_text_error {
+	-fx-font-size: 11px;
+	-fx-fill: #ff0000;
+}
+
+/*
+.titled-pane {
+    -fx-skin: "com.sun.javafx.scene.control.skin.TitledPaneSkin";    
+    -fx-text-fill: -fx-text-base-color;
+    
+    -fx-background-color: linear-gradient(aliceblue, lightslategray);
+}
+*/
+
+

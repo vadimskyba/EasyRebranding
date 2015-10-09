@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="5.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller_Source_File">
+   <children>
+      <Label alignment="TOP_LEFT" text="Relative path:">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="filePath" alignment="TOP_LEFT" text="C:\build_root\CM_VHL\Cruisecontrol\projects\win-vc10-parallel\scripts\build_root\CM_VHL\Cruisecontrol\projects\win-vc10-parallel\scripts\" wrapText="true">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <Label text="Load with Charset:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <ComboBox fx:id="charsetCBox" editable="true" prefWidth="150.0" />
+      <Label text="Save with Charset:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <ComboBox fx:id="outCharsetCBox" editable="true" prefWidth="150.0" />
+      <Label text="Save with EOL (End of Line) format:">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <ChoiceBox fx:id="outEolCBox" prefWidth="150.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ChoiceBox>
+      <CheckBox fx:id="assignedRulesCheckBox" mnemonicParsing="false" text="Assign Rules:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </CheckBox>
+      <TreeView fx:id="assignedRulesTree" prefHeight="100.0" showRoot="false" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="2.0" />
+         </VBox.margin>
+      </TreeView>
+      <Button mnemonicParsing="false" onAction="#OnButton_RemoveFromSourcesList" text="Remove from Sources list">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
